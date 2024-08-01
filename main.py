@@ -24,6 +24,7 @@ Example usage:
     print(f"Total: ${user.cart.get_total():.2f}")
 """
 
+
 class Product:
     """
     A class to represent a product.
@@ -58,6 +59,15 @@ class Product:
             str: A string describing the product.
         """
         return f"{self.name} (${self.price}) - {self.stock} in stock"
+    
+    def get_price(self):
+        """
+        Get the price of the product.
+
+        Returns:
+            float: The price of the product.
+        """
+        return self.price
 
 
 class Cart:
@@ -153,6 +163,15 @@ class User:
             str: A string describing the user.
         """
         return f"User: {self.username}, Email: {self.email}"
+    
+    def get_email(self):
+        """
+        Get the email address of the user.
+
+        Returns:
+            str: The email address of the user.
+        """
+        return self.email
 
 
 # Example usage
