@@ -1,3 +1,29 @@
+"""
+This module defines classes for an e-commerce system, including products, shopping carts, and users.
+
+Classes:
+    Product: A class to represent a product with attributes like id, name, price, and stock.
+    Cart: A class to represent a shopping cart that can hold multiple products.
+    User: A class to represent a user with a username, email, and an associated shopping cart.
+
+Example usage:
+    # Create some products
+    product1 = Product(1, "Laptop", 999.99, 10)
+    product2 = Product(2, "Smartphone", 499.99, 20)
+
+    # Create a user
+    user = User("john_doe", "john@example.com")
+
+    # Add products to the user's cart
+    user.cart.add_product(product1, 1)
+    user.cart.add_product(product2, 2)
+
+    # Print user details and cart contents
+    print(user)
+    print(user.cart)
+    print(f"Total: ${user.cart.get_total():.2f}")
+"""
+
 class Product:
     """
     A class to represent a product.
@@ -9,7 +35,7 @@ class Product:
         stock (int): The number of items in stock.
     """
 
-    def __init__(self, id, name, price, stock):
+    def __init__(self, product_id, name, price, stock):
         """
         Initialize a new product.
 
@@ -19,7 +45,7 @@ class Product:
             price (float): The price of the product.
             stock (int): The number of items in stock.
         """
-        self.id = id
+        self.id = product_id
         self.name = name
         self.price = price
         self.stock = stock
@@ -57,9 +83,9 @@ class Cart:
             quantity (int): The quantity of the product to add.
         """
         if product.id in self.items:
-            self.items[product.id]['quantity'] += quantity
+            self.items[product.id]["quantity"] += quantity
         else:
-            self.items[product.id] = {'product': product, 'quantity': quantity}
+            self.items[product.id] = {"product": product, "quantity": quantity}
 
     def remove_product(self, product_id):
         """
@@ -80,7 +106,7 @@ class Cart:
         """
         total = 0
         for item in self.items.values():
-            total += item['product'].price * item['quantity']
+            total += item["product"].price * item["quantity"]
         return total
 
     def __str__(self):
@@ -90,7 +116,10 @@ class Cart:
         Returns:
             str: A string describing the cart contents.
         """
-        cart_contents = [f"{item['product'].name} x {item['quantity']}" for item in self.items.values()]
+        cart_contents = [
+            f"{item['product'].name} x {item['quantity']}"
+            for item in self.items.values()
+        ]
         return "Cart: " + ", ".join(cart_contents)
 
 
