@@ -59,7 +59,7 @@ class Product:
             str: A string describing the product.
         """
         return f"{self.name} (${self.price}) - {self.stock} in stock"
-    
+
     def get_price(self):
         """
         Get the price of the product.
@@ -163,7 +163,7 @@ class User:
             str: A string describing the user.
         """
         return f"User: {self.username}, Email: {self.email}"
-    
+
     def get_email(self):
         """
         Get the email address of the user.
