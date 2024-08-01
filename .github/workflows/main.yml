@@ -6,7 +6,11 @@ on:
   # pull_request:
   #   branches: [ '**' ]
   workflow_dispatch:
-
+permissions:
+  contents: read
+  packages: read
+  # To report GitHub Actions status checks
+  statuses: write
 jobs:
   python:
     uses: chenette/workflow/.github/workflows/main.yml@main
