@@ -20,5 +20,5 @@ jobs:
     with:
       environment: dev
       programming_language: python
-    # secrets:
-    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
