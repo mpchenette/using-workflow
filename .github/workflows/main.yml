@@ -6,16 +6,19 @@ on:
   pull_request:
     branches: [ '**' ]
   workflow_dispatch:
+
+# TODO: Comment why this is needed? WHat actions uses it?
 permissions:
   contents: read
   packages: read
   # To report GitHub Actions status checks
   statuses: write
+
 jobs:
-  python:
+  app:
     uses: chenette/workflow/.github/workflows/main.yml@main
     with:
       environment: dev
-      application_type: python
-    secrets:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      programming_language: python
+    # secrets:
+    #   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
